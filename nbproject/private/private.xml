@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/home/Carlos/NetBeansProjects/TE_calificaciones/web/frmnota.jsp</file>
+            <file>file:/home/Carlos/NetBeansProjects/TE_calificaciones/src/java/com/emergentes/dao/NotaDAO.java</file>
+            <file>file:/home/Carlos/NetBeansProjects/TE_calificaciones/web/notas.jsp</file>
+            <file>file:/home/Carlos/NetBeansProjects/TE_calificaciones/web/estudiantes.jsp</file>
+            <file>file:/home/Carlos/NetBeansProjects/TE_calificaciones/web/WEB-INF/menu.jsp</file>
+            <file>file:/home/Carlos/NetBeansProjects/TE_calificaciones/src/java/com/emergentes/controlador/NotaControlador.java</file>
+            <file>file:/home/Carlos/NetBeansProjects/TE_calificaciones/src/java/com/emergentes/dao/NotaDAOimpl.java</file>
+            <file>file:/home/Carlos/NetBeansProjects/TE_calificaciones/web/docentes.jsp</file>
+            <file>file:/home/Carlos/NetBeansProjects/TE_calificaciones/src/java/com/emergentes/modelo/Nota.java</file>
+        </group>
+    </open-files>
+</project-private>
