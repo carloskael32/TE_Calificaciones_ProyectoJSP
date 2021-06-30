@@ -1,7 +1,7 @@
 <%
-    /* if (session.getAttribute("login") != "OK"){
+    if (session.getAttribute("login") != "OK"){
         response.sendRedirect("login.jsp");
-    }*/
+    }
 %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -23,16 +23,18 @@
     </head>
     <body>
         <div class="container">
-            <h1>Estudiantes</h1>
-            <a href="Logout" class="btn btn-danger"> Cerrar sesión</a>
+            <h1 align="center">Estudiantes</h1>
+            
             <br>
             <a href="EstudianteControlador?action=add" class="btn btn-primary btn-sm"><i class="fas fa-plus-circle"></i> Nuevo </a>
             <table class="table table-striped">
                 <tr>
                     <th>Id</th>
+                    <th>Ci Docente</th>
+                    
                     <th>Nombres</th>
                     <th>Apellidos</th>
-                    <th>Ci</th>
+                    <th>Ci Estudiante</th>
                     <th>Telefono</th>
                     <th>Correo</th>
                  
@@ -42,6 +44,7 @@
                 <c:forEach var="item" items="${estudiantes}">
                     <tr>
                         <td>${item.id_estudiante}</td>
+                        <td>${item.id_docente}</td>
                         <td>${item.nombres}</td>
                         <td>${item.apellidos}</td>
                         <td>${item.ci}</td>

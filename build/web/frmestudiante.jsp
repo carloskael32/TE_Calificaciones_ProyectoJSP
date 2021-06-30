@@ -10,34 +10,34 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
 
         <title>Estudiantes</title>
+        
+           <jsp:include page="WEB-INF/menu.jsp">
+                <jsp:param name="opcion" value="#" />
+            </jsp:include>
     </head>
     <body>
-        <div class="container">
-            <h1>Formulario de Estudiantes</h1>
+        <div class="container col-5">
+            <h1 align="center">Formulario de Estudiantes</h1>
 
             <br>
             <form action="EstudianteControlador" method="post" >
          
                     <input type="hidden" class="form-control" name="id_estudiante" value="${estudiante.id_estudiante}">
         
-                 <!--   <div class="form-group">
-                    <label for="" class="form-label">Cliente</label>
-                    <select name="cliente_id" class="form-control">
-                        <option value="">-- Seleccione --</option>
-                        <c:forEach var="item" items="${lista_clientes}">
-                            <option value="${item.id}" 
-                                    <c:if test="${venta.cliente_id == item.id}">
-                                        selected
-                                    </c:if>
-                                        >${item.nombre}</option>
+     
+                <div class="form-group">
+                    <label for="" class="form-label">Ci Docente</label>
+                    <select name="id_docente" class="form-control">
+                        <option value=""> -- Seleccione -- </option>
+                       <c:forEach var="item" items="${lista_docentes}">
+                            <option value="${item.id_docente}" </option>
+                                 
+                                        
                         </c:forEach>
                     </select>
                 </div>
-                    -->
-                       <div class="form-group">
-                    <label for="" class="form-label">id_docente</label>
-                    <input type="text" class="form-control" name="id_docente" value="" placeholder="selecciones">                    
-                </div>
+          
+
                     
                 <div class="form-group">
                     <label for="" class="form-label">Nombres</label>
@@ -64,7 +64,8 @@
          
          
                 <br>
-                <button type="submit" class="btn btn-primary">Enviar</button>
+                  <button type="submit" class="btn btn-success">Guardar</button>
+                <a href="EstudianteControlador" class="btn btn-primary "> Atras</a>
             </form>
         </div>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8" crossorigin="anonymous"></script>

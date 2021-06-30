@@ -21,6 +21,9 @@ public class EstudianteDAOimpl extends ConexionDB implements EstudianteDAO {
 
     @Override
     public void insert(Estudiante estudiante) throws Exception {
+        
+        
+        
         try {
             this.conectar();
             PreparedStatement ps = this.conn.prepareStatement("INSERT INTO estudiantes (ci,id_docente,nombres,apellidos,telefono,correo) values (?,?,?,?,?,?)");
@@ -110,7 +113,13 @@ public class EstudianteDAOimpl extends ConexionDB implements EstudianteDAO {
         try {
             this.conectar();
 
-            PreparedStatement ps = this.conn.prepareStatement("SELECT * FROM estudiantes");
+            
+            String sql = "SELECT e.*,d.ci as ci_docente FROM estudiantes e ";
+            sql += "LEFT JOIN docentes d  ON e.id_docente = d.id_docente ";
+
+            PreparedStatement ps = this.conn.prepareStatement(sql);
+            
+            
             ResultSet rs = ps.executeQuery();
 
             lista = new ArrayList<Estudiante>();
@@ -119,11 +128,13 @@ public class EstudianteDAOimpl extends ConexionDB implements EstudianteDAO {
 
                 est.setId_estudiante(rs.getInt("id_estudiante"));
                 est.setCi(rs.getInt("ci"));
-                est.setId_docente(rs.getInt("id_docente"));
+                est.setId_docente(rs.getInt("ci_docente"));
                 est.setNombres(rs.getString("nombres"));
                 est.setApellidos(rs.getString("apellidos"));
                 est.setTelefono(rs.getInt("telefono"));
                 est.setCorreo(rs.getString("correo"));
+                
+              
 
                 lista.add(est);
             }

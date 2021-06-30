@@ -10,10 +10,14 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
 
         <title>Estudiantes</title>
+        
+           <jsp:include page="WEB-INF/menu.jsp">
+                <jsp:param name="opcion" value="#" />
+            </jsp:include>
     </head>
     <body>
-        <div class="container">
-            <h1>Formulario de Materias</h1>
+        <div class="container col-5">
+            <h1 align="center">Formulario de Materias</h1>
 
             <br>
             <form action="MateriaControlador" method="post" >
@@ -27,8 +31,10 @@
                 </div>
 
                 <br>
-                <button type="submit" class="btn btn-primary">Enviar</button>
+                <button type="submit" class="btn btn-success">Guardar</button>
+                <a href="MateriaControlador" class="btn btn-primary "> Atras</a>
             </form>
+                         
         </div>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8" crossorigin="anonymous"></script>
 

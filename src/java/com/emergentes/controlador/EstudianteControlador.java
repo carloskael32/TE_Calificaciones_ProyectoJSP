@@ -5,8 +5,11 @@
  */
 package com.emergentes.controlador;
 
+import com.emergentes.dao.DocenteDAO;
+import com.emergentes.dao.DocenteDAOimpl;
 import com.emergentes.dao.EstudianteDAO;
 import com.emergentes.dao.EstudianteDAOimpl;
+import com.emergentes.modelo.Docente;
 import com.emergentes.modelo.Estudiante;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -27,18 +30,33 @@ public class EstudianteControlador extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+
         try {
+
             Estudiante est = new Estudiante();
-            int id_estudiante;
+
             EstudianteDAO dao = new EstudianteDAOimpl();
+            DocenteDAO daoDocente = new DocenteDAOimpl();
+
+            int id_estudiante;
+            
+            List<Docente> lista_docentes = null;
+
             String action = (request.getParameter("action") != null) ? request.getParameter("action") : "view";
 
             switch (action) {
                 case "add":
+                    lista_docentes = daoDocente.getAll();
+                    request.setAttribute("lista_docentes", lista_docentes);
+
                     request.setAttribute("estudiante", est);
                     request.getRequestDispatcher("frmestudiante.jsp").forward(request, response);
                     break;
                 case "edit":
+
+                    lista_docentes = daoDocente.getAll();
+                    request.setAttribute("lista_docentes", lista_docentes);
+
                     id_estudiante = Integer.parseInt(request.getParameter("id_estudiante"));
                     est = dao.getById(id_estudiante);
                     request.setAttribute("estudiante", est);

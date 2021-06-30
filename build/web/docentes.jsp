@@ -1,7 +1,7 @@
 <%
-    /* if (session.getAttribute("login") != "OK"){
+     if (session.getAttribute("login") != "OK"){
         response.sendRedirect("login.jsp");
-    }*/
+    }
 %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -24,8 +24,8 @@
     </head>
     <body>
         <div class="container">
-            <h1>Docentes</h1>
-            <a href="Logout" class="btn btn-danger"> Cerrar sesión</a>
+            <h1 align="center">Docentes</h1>
+           
             <br>
             <a href="DocenteControlador?action=add" class="btn btn-primary btn-sm"><i class="fas fa-plus-circle"></i> Nuevo </a>
             <table class="table table-striped">
