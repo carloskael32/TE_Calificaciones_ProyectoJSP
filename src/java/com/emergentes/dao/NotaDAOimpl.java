@@ -118,7 +118,10 @@ public class NotaDAOimpl extends ConexionDB implements NotaDAO {
         try {
             this.conectar();
 
-            PreparedStatement ps = this.conn.prepareStatement("SELECT * FROM notas");
+            PreparedStatement ps = this.conn.prepareStatement("SELECT n.*,d.ci as ci_docente, e.ci as ci_estudiante, m.materia as materia FROM notas n\n" +
+"LEFT JOIN docentes d ON n.id_docente = d.id_docente\n" +
+"LEFT JOIN estudiantes e ON n.id_estudiante = e.id_estudiante\n" +
+"LEFT JOIN materias m ON n.id_materia = m.id_materia;");
             ResultSet rs = ps.executeQuery();
 
             lista = new ArrayList<Nota>();
@@ -126,9 +129,10 @@ public class NotaDAOimpl extends ConexionDB implements NotaDAO {
                 Nota not = new Nota();
 
                 not.setId_nota(rs.getInt("id_nota"));
-                not.setId_docente(rs.getInt("id_docente"));
-                not.setId_estudiante(rs.getInt("id_estudiante"));
+                not.setId_docente(rs.getInt("ci_docente"));
+                not.setId_estudiante(rs.getInt("ci_estudiante"));
                 not.setId_materia(rs.getInt("id_materia"));
+                not.setMateria(rs.getString("materia"));
                 not.setNota_1(rs.getInt("nota_1"));
                 not.setNota_2(rs.getInt("nota_2"));
                 not.setNota_3(rs.getInt("nota_3"));

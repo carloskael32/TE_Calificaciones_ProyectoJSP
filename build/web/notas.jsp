@@ -31,8 +31,8 @@
             <table class="table table-striped">
                 <tr>
                     <th>Id_nota</th>
-                    <th>Id_docente</th>
-                    <th>Id_estudiante</th>
+                    <th>Ci_docente</th>
+                    <th>Ci_estudiante</th>
                     <th>Id_materia</th>
                     <th>1er Examen</th>
                     <th>2er Examen</th>
@@ -48,7 +48,7 @@
                         <td>${item.id_nota}</td>
                         <td>${item.id_docente}</td>
                         <td>${item.id_estudiante}</td>
-                        <td>${item.id_materia}</td>
+                        <td>${item.materia}</td>
                         <td>${item.nota_1}</td>
                         <td>${item.nota_2}</td>
                         <td>${item.nota_3}</td>

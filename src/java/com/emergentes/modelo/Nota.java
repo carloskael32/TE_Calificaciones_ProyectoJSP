@@ -20,6 +20,7 @@ public class Nota {
     private int nota_3;
     private int nota_4;
     private int nota_final;
+    private String materia;
 
     public int getId_nota() {
         return id_nota;
@@ -93,11 +94,21 @@ public class Nota {
         this.nota_final = nota_final;
     }
 
-    @Override
-    public String toString() {
-        return "Nota{" + "id_nota=" + id_nota + ", id_docente=" + id_docente + ", id_estudiante=" + id_estudiante + ", id_materia=" + id_materia + ", nota_1=" + nota_1 + ", nota_2=" + nota_2 + ", nota_3=" + nota_3 + ", nota_4=" + nota_4 + ", nota_final=" + nota_final + '}';
+    public String getMateria() {
+        return materia;
     }
 
+    public void setMateria(String materia) {
+        this.materia = materia;
+    }
+
+    @Override
+    public String toString() {
+        return "Nota{" + "id_nota=" + id_nota + ", id_docente=" + id_docente + ", id_estudiante=" + id_estudiante + ", id_materia=" + id_materia + ", nota_1=" + nota_1 + ", nota_2=" + nota_2 + ", nota_3=" + nota_3 + ", nota_4=" + nota_4 + ", nota_final=" + nota_final + ", materia=" + materia + '}';
+    }
+
+    
+   
     
 
    

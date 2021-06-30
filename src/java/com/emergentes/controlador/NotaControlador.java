@@ -5,8 +5,17 @@
  */
 package com.emergentes.controlador;
 
+import com.emergentes.dao.DocenteDAO;
+import com.emergentes.dao.DocenteDAOimpl;
+import com.emergentes.dao.EstudianteDAO;
+import com.emergentes.dao.EstudianteDAOimpl;
+import com.emergentes.dao.MateriaDAO;
+import com.emergentes.dao.MateriaDAOimpl;
 import com.emergentes.dao.NotaDAO;
 import com.emergentes.dao.NotaDAOimpl;
+import com.emergentes.modelo.Docente;
+import com.emergentes.modelo.Estudiante;
+import com.emergentes.modelo.Materia;
 import com.emergentes.modelo.Nota;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -29,6 +38,14 @@ public class NotaControlador extends HttpServlet {
             throws ServletException, IOException {
 
         try {
+            EstudianteDAO daoEstudiante = new EstudianteDAOimpl();
+            DocenteDAO daoDocente = new DocenteDAOimpl();
+            MateriaDAO daoMateria = new MateriaDAOimpl();
+
+            List<Estudiante> lista_estudiante = null;
+            List<Docente> lista_docente = null;
+            List<Materia> lista_materia = null;
+
             Nota not = new Nota();
             int id_nota;
             NotaDAO dao = new NotaDAOimpl();
@@ -36,10 +53,30 @@ public class NotaControlador extends HttpServlet {
 
             switch (action) {
                 case "add":
+
+                    lista_estudiante = daoEstudiante.getAll();
+                    request.setAttribute("lista_estudiante", lista_estudiante);
+
+                    lista_docente = daoDocente.getAll();
+                    request.setAttribute("lista_docente", lista_docente);
+
+                    lista_materia = daoMateria.getAll();
+                    request.setAttribute("lista_materia", lista_materia);
+
                     request.setAttribute("nota", not);
                     request.getRequestDispatcher("frmnota.jsp").forward(request, response);
                     break;
                 case "edit":
+
+                    lista_estudiante = daoEstudiante.getAll();
+                    request.setAttribute("lista_estudiante", lista_estudiante);
+
+                    lista_docente = daoDocente.getAll();
+                    request.setAttribute("lista_docente", lista_docente);
+
+                    lista_materia = daoMateria.getAll();
+                    request.setAttribute("lista_materia", lista_materia);
+
                     id_nota = Integer.parseInt(request.getParameter("id_nota"));
                     not = dao.getById(id_nota);
                     request.setAttribute("nota", not);

@@ -1,3 +1,4 @@
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!doctype html>
 <html lang="es">
@@ -10,10 +11,10 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
 
         <title>Notas</title>
-        
-         <jsp:include page="WEB-INF/menu.jsp">
-                <jsp:param name="opcion" value="#" />
-            </jsp:include>
+
+        <jsp:include page="WEB-INF/menu.jsp">
+            <jsp:param name="opcion" value="#" />
+        </jsp:include>
     </head>
     <body>
         <div class="container col-5">
@@ -24,29 +25,65 @@
 
                 <input type="hidden" class="form-control" name="id_nota" value="${nota.id_nota}">
 
+
                 <div class="form-group">
                     <label for="" class="form-label">Ci Docente</label>
-                    <input type="number" class="form-control" name="id_docente" value="${nota.id_docente}" placeholder="id docente">                    
+                    <select name="id_docente" class="form-control">
+
+                        <option value=""> -- Seleccione -- </option>
+
+                        <c:forEach var="item" items="${lista_docente}">
+
+                            <option value="${item.id_docente}">${item.ci} | ${item.nombres} </option>
+
+                        </c:forEach>
+                    </select>
                 </div>
+
+
 
                 <div class="form-group">
                     <label for="" class="form-label">Ci Estudiante</label>
-                    <input type="number" class="form-control" name="id_estudiante" value="${nota.id_estudiante}" placeholder="id estudiante">                    
-                </div>
-                <div class="form-group">
-                    <label for="" class="form-label">Ci Materia</label>
-                    <input type="number" class="form-control" name="id_materia" value="${nota.id_materia}" placeholder="id materia">                    
+                    <select name="id_estudiante" class="form-control">
+
+                        <option value=""> -- Seleccione -- </option>
+
+                        <c:forEach var="item" items="${lista_estudiante}">
+
+                            <option value="${item.id_estudiante}">${item.ci} | ${item.nombres} </option>
+
+                        </c:forEach>
+                    </select>
                 </div>
 
-                    <div class="form-group">
-                        <label for="" class="form-label">1er Examen</label>
-                        <input type="number" class="form-control" name="nota_1" value="${nota.nota_1}" placeholder="nota 1">
-                    </div>
-                    <div class="form-group">
-                        <label for="" class="form-label">2er Examen</label>
-                        <input type="number" class="form-control" name="nota_2" value="${nota.nota_2}" placeholder="nota 2">                    
-                    </div>
-               
+
+
+                <div class="form-group">
+                    <label for="" class="form-label">Ci Materia</label>
+                    <select name="id_materia" class="form-control">
+
+                        <option value=""> -- Seleccione -- </option>
+
+                        <c:forEach var="item" items="${lista_materia}">
+
+                            <option value="${item.id_materia}">${item.materia} </option>
+
+                        </c:forEach>
+                    </select>
+                </div>
+
+
+
+
+                <div class="form-group">
+                    <label for="" class="form-label">1er Examen</label>
+                    <input type="number" class="form-control" name="nota_1" value="${nota.nota_1}" placeholder="nota 1">
+                </div>
+                <div class="form-group">
+                    <label for="" class="form-label">2er Examen</label>
+                    <input type="number" class="form-control" name="nota_2" value="${nota.nota_2}" placeholder="nota 2">                    
+                </div>
+
                 <div class="form-group">
                     <label for="" class="form-label">3er Examen</label>
                     <input type="number" class="form-control" name="nota_3" value="${nota.nota_3}" placeholder="nota 3">                    
@@ -68,8 +105,8 @@
                 <a href="NotaControlador" class="btn btn-primary "> Atras</a>
             </form>
         </div>
-                <br>
-                
+        <br>
+
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8" crossorigin="anonymous"></script>
 
     </body>
